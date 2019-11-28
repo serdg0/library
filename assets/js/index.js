@@ -155,7 +155,7 @@ function populateLibrary() {
     addBook("Lord of the Rings", "J.R Tolkien", 399, true);
     addBook("Money", "Floyd Mayweather", 50);
     addBook("The Bible", "Various", 878);
-    addBook("Harry Potter and the Philosopher's kush", "Bob Marley", 420);
+    addBook("Harry Potter and the Philosopher's stone", "Bob Marley", 420);
     addBook("Mas alla del bien y el mal", "Friedrich Nietzche", 50, true);
     addBook("Metal Drum", "Gunter Grass", 800, true);
 }
