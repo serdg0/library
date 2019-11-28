@@ -7,3 +7,7 @@ This is a project from the JavaScript part of the main curriculum for [Microvers
 #### [Assignment link](https://www.theodinproject.com/courses/javascript/lessons/library)
 
 #### [View live in broswer](#)
+
+### Authors
+ #### [@serdg0](https://github.com/serdg0/)
+ #### [@eapenzacharias](https://github.com/eapenzacharias)
