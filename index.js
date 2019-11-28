@@ -29,6 +29,8 @@ function buildNav(){
 function addForm(){
     let parentForm = document.getElementById("myForm");
     let form = document.createElement("form");
+    let titleFgroup = document.createElement("div");
+    let authorFgroup = document.createElement("div");
     parentForm.appendChild(form);
     let inputTitle = document.createElement("input");
     let readInput = document.createElement("input");
