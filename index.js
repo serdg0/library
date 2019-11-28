@@ -10,7 +10,7 @@ function Book(title, author, pages) {
 Book.prototype.read = false;
 Book.prototype.id = null;
 
-function buildNav(){
+function buildNav() {
     let navBar = document.getElementById("nav");
     let addBookButton = document.createElement("button");
     let populateLibraryButton = document.createElement("button");
@@ -26,41 +26,49 @@ function buildNav(){
     navBar.appendChild(populateLibraryButton);
 }
 
-function addForm(){
+function addForm() {
     let parentForm = document.getElementById("myForm");
+    parentForm.setAttribute("class", "row formRow")
     let form = document.createElement("form");
+    let divFormGroup = document.createElement("div");
+    divFormGroup.setAttribute("class", "form-group")
     let titleFgroup = document.createElement("div");
     let authorFgroup = document.createElement("div");
     parentForm.appendChild(form);
+    form.appendChild(divFormGroup);
     let inputTitle = document.createElement("input");
+    let inputLabel = document.createElement("label");
+    inputLabel.setAttribute("for", "read");
+    inputLabel.innerHTML = "Have you read it? ";
     let readInput = document.createElement("input");
     readInput.setAttribute("type", "checkbox");
     readInput.setAttribute("id", "read");
     inputTitle.setAttribute("placeholder", "The Hobbit");
     inputTitle.setAttribute("id", "new-title");
     inputTitle.setAttribute("class", "form-control");
+    inputTitle.setAttribute("type", "text");
     let inputAuthor = document.createElement("input");
     inputAuthor.setAttribute("placeholder", "J.R Tolkien");
     inputAuthor.setAttribute("id", "new-author");
     inputAuthor.setAttribute("class", "form-control");
+    inputAuthor.setAttribute("type", "text");
     let inputPages = document.createElement("input");
     inputPages.setAttribute("placeholder", "420");
     inputPages.setAttribute("id", "new-pages");
     inputPages.setAttribute("type", "number");
     inputPages.setAttribute("class", "form-control");
+    inputPages.setAttribute("type", "text");
     let submitButton = document.createElement("button");
     let submitTxt = document.createTextNode("Add it");
     submitButton.appendChild(submitTxt);
     submitButton.setAttribute("onclick", "addBookDOM()");
-    form.appendChild(inputTitle);
-    form.appendChild(inputAuthor);
-    form.appendChild(inputPages);
-    form.appendChild(readInput);
-    parentForm.appendChild(submitButton);
+    inputLabel.innerHTML += readInput.outerHTML;
+    divFormGroup.innerHTML += inputTitle.outerHTML + inputAuthor.outerHTML + inputPages.outerHTML + inputLabel.outerHTML + submitButton.outerHTML;
+    //parentForm.appendChild(submitButton);
 
 }
 
-function addBookDOM(){
+function addBookDOM() {
     let title = document.getElementById("new-title").value;
     let author = document.getElementById("new-author").value;
     let pages = document.getElementById("new-pages").value;
@@ -69,7 +77,7 @@ function addBookDOM(){
     document.getElementById("myForm").innerHTML = "";
 }
 
-function addBook(title, author, pages, read=false) {
+function addBook(title, author, pages, read = false) {
     let newBook = new Book(title, author, pages);
     INDEX++;
     newBook.id = INDEX;
@@ -92,7 +100,7 @@ function defineReadButton(button, book) {
     }
 }
 
-function renderLibrary(){
+function renderLibrary() {
     document.getElementById("Library").innerHTML = "";
     myLibrary.forEach(book => {
         let div = document.getElementById("Library");
@@ -119,7 +127,7 @@ function renderLibrary(){
         cardBody.appendChild(readOrNot);
         let tName = document.createTextNode("Author: " + book.author);
         let tTitle = document.createTextNode(book.title);
-        let tPages = document.createTextNode(book.pages+ " pages");
+        let tPages = document.createTextNode(book.pages + " pages");
         let addButton = document.createTextNode("Burn");
         let readBtxt = document.createTextNode("Read");
         readOrNot.appendChild(readBtxt);
